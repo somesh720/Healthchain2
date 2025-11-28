@@ -43,13 +43,13 @@ const ResetPassword = () => {
       console.log("Sending reset request:", { token, role });
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/reset-password",
-        {
-          token,
-          role,
-          newPassword,
-        }
-      );
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/auth/reset-password`,
+  {
+    token,
+    role,
+    newPassword,
+  }
+);
 
       setMessage(res.data.message || "Password reset successfully!");
 
