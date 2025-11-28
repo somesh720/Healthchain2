@@ -297,9 +297,10 @@ const SignupPage = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/signup",
-        formData
-      );
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/signup`,
+  formData
+);
+
       
       // Show success message
       setShowSuccess(true);
