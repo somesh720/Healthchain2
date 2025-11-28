@@ -36,8 +36,8 @@ const Doctor = () => {
     const fetchDoctors = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/specialization/getDoctors"
-        );
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/specialization/getDoctors`
+);
         setDoctorsByCategory(res.data);
       } catch (err) {
         console.error("Error fetching doctors:", err);
