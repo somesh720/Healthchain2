@@ -45,7 +45,9 @@ const AdminDashboard = () => {
   const fetchStats = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/admin/stats");
+      const res = await fetch(
+      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/admin/stats`
+    );
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
@@ -79,7 +81,9 @@ const AdminDashboard = () => {
   // Fetch completed appointments count from appointments API
   const fetchCompletedAppointments = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/admin/all-appointments");
+      const res = await fetch(
+      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/admin/all-appointments`
+    );
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
@@ -100,7 +104,9 @@ const AdminDashboard = () => {
   // Fetch today's appointments count from appointments API
   const fetchTodayAppointments = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/admin/all-appointments");
+     const res = await fetch(
+      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/admin/all-appointments`
+    );
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
