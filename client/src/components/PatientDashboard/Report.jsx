@@ -38,11 +38,11 @@ const Report = () => {
       }
 
       try {
-        const res = await axios.get(
-          `http://localhost:5000/api/appointments/reports?patientId=${encodeURIComponent(
-            patientId
-          )}`
-        );
+       const res = await axios.get(
+  `${process.env.REACT_APP_API_URL}/api/appointments/reports?patientId=${encodeURIComponent(
+    patientId
+  )}`
+);
         setReports(Array.isArray(res.data) ? res.data : []);
       } catch (err) {
         console.error("fetchReports error:", err);
@@ -61,17 +61,15 @@ const Report = () => {
   // ✅ Use GridFS endpoints for file operations
   const handleView = (filename) => {
     if (!filename) return alert("No file available");
-    const url = `http://localhost:5000/api/files/view/${encodeURIComponent(
-      filename
-    )}`;
+    const url = `${process.env.REACT_APP_API_URL}/api/files/view/${encodeURIComponent(filename)}`;
+
     window.open(url, "_blank");
   };
 
   const handleDownload = (filename) => {
     if (!filename) return alert("No file available");
-    const url = `http://localhost:5000/api/files/download/${encodeURIComponent(
-      filename
-    )}`;
+    const url = `${process.env.REACT_APP_API_URL}/api/files/download/${encodeURIComponent(filename)}`;
+
     window.open(url, "_blank");
   };
 
