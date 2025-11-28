@@ -105,11 +105,10 @@ const BookAppointmentForm = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/appointments/book",
-        form,
-        { headers: { "Content-Type": "multipart/form-data" } }
-      );
-
+  "http://localhost:5000/api/appointments/book",
+  form,
+  { headers: { "Content-Type": "multipart/form-data" } }
+);
       if (res.status === 201) {
         // Show success popup
         setShowSuccess(true);
