@@ -16,7 +16,7 @@ const PatientLogin = () => {
     setMessage({ text: "", type: "" }); // Clear previous messages
 
     try {
-      const res = await fetch("http://localhost:5000/api/patients/login", {
+     const res = await fetch(`${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/patients/login`,  {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
