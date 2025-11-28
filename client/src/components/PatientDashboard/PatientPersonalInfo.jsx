@@ -65,9 +65,8 @@ const PatientDashboard = () => {
       };
 
       console.log("Sending patient update data:", updateData);
-
-      const response = await axios.put(
-        `http://localhost:5000/api/patients/${patient._id}`,
+const response = await axios.put(
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/patients/${patient._id}`,
         updateData,
         {
           headers: {
