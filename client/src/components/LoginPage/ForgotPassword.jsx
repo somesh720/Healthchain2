@@ -18,12 +18,12 @@ const ForgotPassword = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/forgot-password",
-        {
-          email,
-          role,
-        }
-      );
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/auth/forgot-password`,
+  {
+    email,
+    role,
+  }
+);
 
       setMessage(res.data.message);
       setEmail("");
