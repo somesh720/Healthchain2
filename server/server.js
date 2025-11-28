@@ -38,7 +38,7 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:3001',
   'http://localhost:5173',
-  'https://your-frontend-app.vercel.app'
+  'https://healthchain-project.vercel.app/'
 ];
 
 app.use(cors({
