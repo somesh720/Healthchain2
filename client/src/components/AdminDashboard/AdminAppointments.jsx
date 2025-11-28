@@ -20,8 +20,8 @@ const AdminAppointments = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:5000/api/admin/all-appointments"
-      );
+      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/admin/all-appointments`
+    );
       console.log("Appointments data:", res.data); // Debug log
       setAppointments(res.data);
       setMessage({ text: "", type: "" });
@@ -40,9 +40,9 @@ const AdminAppointments = () => {
   const handleStatusUpdate = async (appointmentId, newStatus) => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/admin/appointments/${appointmentId}/status`,
-        { status: newStatus }
-      );
+      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/admin/appointments/${appointmentId}/status`,
+      { status: newStatus }
+    );
 
       if (res.status === 200) {
         // Update local state
