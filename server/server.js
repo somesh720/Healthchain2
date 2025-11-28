@@ -30,6 +30,8 @@ import adminRoutes from "./routes/adminRoutes.js";
 import gridFSRoutes from "./routes/gridFSRoutes.js"; // NEW: GridFS routes
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 // ✅ CORS for production - ADD THIS
