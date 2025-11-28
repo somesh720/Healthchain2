@@ -37,8 +37,8 @@ const PatientPrescription = () => {
       const patientId = localStorage.getItem("patientId");
       if (patientId) {
         const response = await axios.get(
-          `http://localhost:5000/api/prescriptions/patient/${patientId}`
-        );
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/prescriptions/patient/${patientId}`
+);
         if (response.data && response.data.length > 0) {
           // Sort prescriptions by date (newest first)
           const sortedPrescriptions = response.data.sort(
