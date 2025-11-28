@@ -38,11 +38,12 @@ const Report = () => {
       }
 
       try {
-       const res = await axios.get(
-  `${process.env.REACT_APP_API_URL}/api/appointments/reports?patientId=${encodeURIComponent(
+    const res = await axios.get(
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/appointments/reports?patientId=${encodeURIComponent(
     patientId
   )}`
 );
+
         setReports(Array.isArray(res.data) ? res.data : []);
       } catch (err) {
         console.error("fetchReports error:", err);
@@ -61,14 +62,16 @@ const Report = () => {
   // ✅ Use GridFS endpoints for file operations
   const handleView = (filename) => {
     if (!filename) return alert("No file available");
-    const url = `${process.env.REACT_APP_API_URL}/api/files/view/${encodeURIComponent(filename)}`;
+  const url = `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/files/view/${encodeURIComponent(filename)}`;
+
 
     window.open(url, "_blank");
   };
 
   const handleDownload = (filename) => {
     if (!filename) return alert("No file available");
-    const url = `${process.env.REACT_APP_API_URL}/api/files/download/${encodeURIComponent(filename)}`;
+    const url = `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/files/download/${encodeURIComponent(filename)}`;
+
 
     window.open(url, "_blank");
   };
