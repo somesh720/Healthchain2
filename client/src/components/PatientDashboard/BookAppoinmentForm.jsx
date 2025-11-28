@@ -104,11 +104,12 @@ const BookAppointmentForm = () => {
     for (let [key, value] of form.entries()) console.log(`${key}:`, value);
 
     try {
-      const res = await axios.post(
-  "http://localhost:5000/api/appointments/book",
+  const res = await axios.post(
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/appointments/book`,
   form,
   { headers: { "Content-Type": "multipart/form-data" } }
 );
+
       if (res.status === 201) {
         // Show success popup
         setShowSuccess(true);
