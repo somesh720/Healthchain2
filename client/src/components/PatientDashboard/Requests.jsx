@@ -44,9 +44,10 @@ const Requests = () => {
   // 🔹 Check if appointment has prescription
   const checkPrescription = async (appointmentId) => {
     try {
-      const res = await axios.get(
-        `http://localhost:5000/api/prescriptions/appointment/${appointmentId}`
-      );
+const res = await axios.get(
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/prescriptions/appointment/${appointmentId}`
+);
+
       return res.data.exists;
     } catch (error) {
       console.error("Error checking prescription:", error);
@@ -69,8 +70,9 @@ const Requests = () => {
 
         // Fetch appointments
         const res = await axios.get(
-          `http://localhost:5000/api/requests?patientId=${patientId}`
-        );
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/requests?patientId=${patientId}`
+);
+
 
         const appointmentsData = Array.isArray(res.data) ? res.data : [];
 
@@ -112,8 +114,9 @@ const Requests = () => {
     
     try {
       await axios.put(
-        `http://localhost:5000/api/requests/${appointmentId}/cancel`
-      );
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/requests/${appointmentId}/cancel`
+);
+
 
       // Update UI immediately
       setAppointments((prev) =>
