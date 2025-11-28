@@ -80,8 +80,8 @@ const PatientList = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/prescriptions/appointment/${appointmentId}`
-        );
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/prescriptions/appointment/${appointmentId}`
+);
 
         console.log("📋 Prescription API response:", response.data);
 
@@ -242,8 +242,8 @@ const PatientList = () => {
         console.log("🔄 Fetching appointments for doctor:", doctorId);
 
         const res = await axios.get(
-          `http://localhost:5000/api/appointments/doctor/${doctorId}`
-        );
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/appointments/doctor/${doctorId}`
+);
 
         console.log("✅ API Response received - FULL RESPONSE:", res);
         console.log("📊 Response data type:", typeof res.data);
