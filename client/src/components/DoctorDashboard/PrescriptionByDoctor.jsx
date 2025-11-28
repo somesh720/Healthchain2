@@ -176,10 +176,10 @@ const PrescriptionByDoctor = () => {
 
       console.log("📤 Saving prescription:", prescriptionData);
 
-      const response = await axios.post(
-        "http://localhost:5000/api/prescriptions/create",
-        prescriptionData
-      );
+        const response = await axios.post(
+      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/prescriptions/create`,
+      prescriptionData
+    );
 
       if (response.status === 201) {
         console.log("✅ Prescription saved successfully:", response.data);
