@@ -17,8 +17,8 @@ const AdminPatients = () => {
   const fetchPatients = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/admin/all-patients"
-      );
+      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/admin/all-patients`
+    );
       setPatients(res.data);
     } catch (error) {
       console.error("Error loading patients:", error);
