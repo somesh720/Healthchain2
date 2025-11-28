@@ -41,9 +41,9 @@ const AppointmentApproval = () => {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:5000/api/requests?doctorId=${doctorId}`
-        );
+       const res = await axios.get(
+        `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/requests?doctorId=${doctorId}`
+      );
         // Filter out cancelled appointments
         const activeAppointments = res.data.filter(
           (appt) => appt.status !== "Cancelled"
@@ -62,7 +62,9 @@ const AppointmentApproval = () => {
   // Approve Appointment
   const handleApprove = async (id, patientName) => {
     try {
-      await axios.put(`http://localhost:5000/api/requests/${id}/approve`);
+      await axios.put(
+      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/requests/${id}/approve`
+    );
       setAppointments((prev) =>
         prev.map((appt) =>
           appt._id === id ? { ...appt, status: "Confirmed" } : appt
