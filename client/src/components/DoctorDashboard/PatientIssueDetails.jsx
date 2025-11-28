@@ -69,8 +69,8 @@ const PatientIssueDetails = () => {
       // ✅ Use the correct API endpoint from your route
       // GET /api/requests?patientId=123 OR /api/requests?doctorId=456
       const allAppointmentsResponse = await axios.get(
-        `http://localhost:5000/api/requests?patientId=${patientId}`
-      );
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/requests?patientId=${patientId}`
+);
 
       console.log(
         "📋 All appointments for patient from /api/requests:",
@@ -162,8 +162,8 @@ const PatientIssueDetails = () => {
       try {
         // Try getting appointments by doctor ID as fallback
         const doctorAppointmentsResponse = await axios.get(
-          `http://localhost:5000/api/requests?doctorId=${doctorId}`
-        );
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/requests?doctorId=${doctorId}`
+);
 
         console.log(
           "📋 Appointments for doctor from /api/requests:",
@@ -212,9 +212,9 @@ const PatientIssueDetails = () => {
 
     try {
       window.open(
-        `http://localhost:5000/api/files/download/${filename}`,
-        "_blank"
-      );
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/files/download/${filename}`,
+  "_blank"
+);
     } catch (error) {
       console.error("Download error:", error);
       alert("Failed to download file. Please try again.");
@@ -227,7 +227,10 @@ const PatientIssueDetails = () => {
       alert("No file available to view");
       return;
     }
-    window.open(`http://localhost:5000/api/files/view/${filename}`, "_blank");
+    window.open(
+  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/files/view/${filename}`,
+  "_blank"
+);
   };
 
   // Show error if selected patient appointment is cancelled
