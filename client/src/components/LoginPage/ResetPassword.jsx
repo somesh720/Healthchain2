@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import axios from "axios";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -43,7 +45,7 @@ const ResetPassword = () => {
       console.log("Sending reset request:", { token, role });
 
       const res = await axios.post(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/auth/reset-password`,
+  `${API}/api/auth/reset-password`,
   {
     token,
     role,
