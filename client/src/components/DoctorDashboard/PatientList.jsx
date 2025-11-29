@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getDoctorImage } from "../../utils/profileImages"; // Import the doctor image utility
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const PatientList = () => {
   const [patients, setPatients] = useState([]);
   const [search, setSearch] = useState("");
@@ -80,7 +82,7 @@ const PatientList = () => {
 
       try {
         const response = await axios.get(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/prescriptions/appointment/${appointmentId}`
+  `${API}/api/prescriptions/appointment/${appointmentId}`
 );
 
         console.log("📋 Prescription API response:", response.data);
@@ -242,7 +244,7 @@ const PatientList = () => {
         console.log("🔄 Fetching appointments for doctor:", doctorId);
 
         const res = await axios.get(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/appointments/doctor/${doctorId}`
+  `${API}/api/appointments/doctor/${doctorId}`
 );
 
         console.log("✅ API Response received - FULL RESPONSE:", res);
