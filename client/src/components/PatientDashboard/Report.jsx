@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
+
 const Report = () => {
   const [reports, setReports] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -39,7 +42,7 @@ const Report = () => {
 
       try {
     const res = await axios.get(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/appointments/reports?patientId=${encodeURIComponent(
+  `${API}/api/appointments/reports?patientId=${encodeURIComponent(
     patientId
   )}`
 );
@@ -62,7 +65,7 @@ const Report = () => {
   // ✅ Use GridFS endpoints for file operations
   const handleView = (filename) => {
     if (!filename) return alert("No file available");
-  const url = `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/files/view/${encodeURIComponent(filename)}`;
+  const url = `${API}/api/files/view/${encodeURIComponent(filename)}`;
 
 
     window.open(url, "_blank");
@@ -70,7 +73,7 @@ const Report = () => {
 
   const handleDownload = (filename) => {
     if (!filename) return alert("No file available");
-    const url = `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/files/download/${encodeURIComponent(filename)}`;
+    const url = `${API}/api/files/download/${encodeURIComponent(filename)}`;
 
 
     window.open(url, "_blank");
