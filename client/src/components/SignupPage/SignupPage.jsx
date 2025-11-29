@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
+
 const SignupPage = () => {
   const [formData, setFormData] = useState({
     role: "",
@@ -297,7 +300,7 @@ const SignupPage = () => {
 
     try {
       const res = await axios.post(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/signup`,
+  `${API}/api/signup`,
   formData
 );
 
