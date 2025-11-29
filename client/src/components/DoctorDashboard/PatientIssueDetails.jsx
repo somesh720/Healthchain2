@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages"; // Import the patient image utility
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const PatientIssueDetails = () => {
   const [patient, setPatient] = useState(null);
   const [reports, setReports] = useState([]);
@@ -69,7 +71,7 @@ const PatientIssueDetails = () => {
       // ✅ Use the correct API endpoint from your route
       // GET /api/requests?patientId=123 OR /api/requests?doctorId=456
       const allAppointmentsResponse = await axios.get(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/requests?patientId=${patientId}`
+  `${API}/api/requests?patientId=${patientId}`
 );
 
       console.log(
@@ -162,7 +164,7 @@ const PatientIssueDetails = () => {
       try {
         // Try getting appointments by doctor ID as fallback
         const doctorAppointmentsResponse = await axios.get(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/requests?doctorId=${doctorId}`
+  `${API}/api/requests?doctorId=${doctorId}`
 );
 
         console.log(
@@ -212,7 +214,7 @@ const PatientIssueDetails = () => {
 
     try {
       window.open(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/files/download/${filename}`,
+  `${API}/api/files/download/${filename}`,
   "_blank"
 );
     } catch (error) {
@@ -228,7 +230,7 @@ const PatientIssueDetails = () => {
       return;
     }
     window.open(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/files/view/${filename}`,
+  `${API}/api/files/view/${filename}`,
   "_blank"
 );
   };
