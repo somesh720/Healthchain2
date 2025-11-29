@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"; 
 
 
 const BookAppointmentForm = () => {
