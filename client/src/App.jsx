@@ -79,7 +79,8 @@ export default function App() {
         <Route path="/admin-appointments" element={<AdminAppointments />} />
 
         {/* ==================== 404 PAGE (Optional) ==================== */}
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+     
       </Routes>
     </Router>
   );
