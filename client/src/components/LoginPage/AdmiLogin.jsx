@@ -17,7 +17,7 @@ const AdminLogin = () => {
     setMessage({ text: "", type: "" }); // Clear previous messages
 
     try {
-       const res = await fetch(`${API"}/api/admin/login`, {
+       const res = await fetch(`${API}/api/admin/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
