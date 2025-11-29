@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages"; // Import the profile image utility
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
+
 const PatientPrescription = () => {
   const navigate = useNavigate();
   const [prescriptions, setPrescriptions] = useState([]);
@@ -37,7 +40,7 @@ const PatientPrescription = () => {
       const patientId = localStorage.getItem("patientId");
       if (patientId) {
         const response = await axios.get(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/prescriptions/patient/${patientId}`
+  `${API}/api/prescriptions/patient/${patientId}`
 );
         if (response.data && response.data.length > 0) {
           // Sort prescriptions by date (newest first)
