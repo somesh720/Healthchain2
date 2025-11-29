@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const AdminDashboard = () => {
   const [stats, setStats] = useState({});
   const [loading, setLoading] = useState(true);
@@ -46,7 +48,7 @@ const AdminDashboard = () => {
     try {
       setLoading(true);
       const res = await fetch(
-      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/admin/stats`
+      `${API}/api/admin/stats`
     );
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
@@ -82,7 +84,7 @@ const AdminDashboard = () => {
   const fetchCompletedAppointments = async () => {
     try {
       const res = await fetch(
-      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/admin/all-appointments`
+      `${API}/api/admin/all-appointments`
     );
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
@@ -105,7 +107,7 @@ const AdminDashboard = () => {
   const fetchTodayAppointments = async () => {
     try {
      const res = await fetch(
-      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/admin/all-appointments`
+      `${API}/api/admin/all-appointments`
     );
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
