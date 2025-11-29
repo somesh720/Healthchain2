@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("patient");
@@ -18,7 +20,7 @@ const ForgotPassword = () => {
 
     try {
       const res = await axios.post(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/auth/forgot-password`,
+  `${API}/api/auth/forgot-password`,
   {
     email,
     role,
