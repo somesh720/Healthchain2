@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getDoctorImage } from "../../utils/profileImages"; // Import the doctor image utility
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const AppointmentApproval = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -42,7 +44,7 @@ const AppointmentApproval = () => {
     const fetchAppointments = async () => {
       try {
        const res = await axios.get(
-        `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/requests?doctorId=${doctorId}`
+        `${API}/api/requests?doctorId=${doctorId}`
       );
         // Filter out cancelled appointments
         const activeAppointments = res.data.filter(
@@ -63,7 +65,7 @@ const AppointmentApproval = () => {
   const handleApprove = async (id, patientName) => {
     try {
       await axios.put(
-      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/requests/${id}/approve`
+      `${API}/api/requests/${id}/approve`
     );
       setAppointments((prev) =>
         prev.map((appt) =>
