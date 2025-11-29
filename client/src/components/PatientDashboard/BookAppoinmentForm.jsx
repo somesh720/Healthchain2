@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
+
 const BookAppointmentForm = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -105,7 +108,7 @@ const BookAppointmentForm = () => {
 
     try {
   const res = await axios.post(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/appointments/book`,
+  `${API}/api/appointments/book`,
   form,
   { headers: { "Content-Type": "multipart/form-data" } }
 );
