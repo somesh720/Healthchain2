@@ -7,6 +7,9 @@ import {
   formatConsultingDaysForCard,
 } from "../../utils/timeFormatter";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
+
 const Doctor = () => {
   const [doctorsByCategory, setDoctorsByCategory] = useState({});
   const [loading, setLoading] = useState(true);
@@ -36,7 +39,7 @@ const Doctor = () => {
     const fetchDoctors = async () => {
       try {
         const res = await axios.get(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/specialization/getDoctors`
+  `${API}/api/specialization/getDoctors`
 );
         setDoctorsByCategory(res.data);
       } catch (err) {
