@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const PatientLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +18,7 @@ const PatientLogin = () => {
     setMessage({ text: "", type: "" }); // Clear previous messages
 
     try {
-     const res = await fetch(`${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/patients/login`,  {
+     const res = await fetch(`${API}/api/patients/login`,  {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
