@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages"; // Import the specific patient image function
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
+
 const PatientDashboard = () => {
   const [patient, setPatient] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -66,7 +69,7 @@ const PatientDashboard = () => {
 
       console.log("Sending patient update data:", updateData);
 const response = await axios.put(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/patients/${patient._id}`,
+  `${API}/api/patients/${patient._id}`,
         updateData,
         {
           headers: {
