@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const AdminPatients = () => {
   const [patients, setPatients] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,7 +19,7 @@ const AdminPatients = () => {
   const fetchPatients = async () => {
     try {
       const res = await axios.get(
-      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/admin/all-patients`
+      `${API}/api/admin/all-patients`
     );
       setPatients(res.data);
     } catch (error) {
