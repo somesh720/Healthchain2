@@ -8,6 +8,8 @@ import {
   formatConsultingDaysForDashboard,
 } from "../../utils/timeFormatter";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const DoctorDashboard = () => {
   const [doctor, setDoctor] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -132,7 +134,7 @@ const DoctorDashboard = () => {
       console.log("Sending update data:", updateData);
 
     const response = await axios.put(
-      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/doctors/${doctor._id}`,
+      `${API}/api/doctors/${doctor._id}`,
         updateData,
         {
           headers: {
