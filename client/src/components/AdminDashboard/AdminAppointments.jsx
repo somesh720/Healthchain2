@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
+
+
 const AdminAppointments = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,7 +24,7 @@ const AdminAppointments = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/admin/all-appointments`
+      `${API}/api/admin/all-appointments`
     );
       console.log("Appointments data:", res.data); // Debug log
       setAppointments(res.data);
@@ -40,7 +44,7 @@ const AdminAppointments = () => {
   const handleStatusUpdate = async (appointmentId, newStatus) => {
     try {
       const res = await axios.put(
-      `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/admin/appointments/${appointmentId}/status`,
+      `${API}/api/admin/appointments/${appointmentId}/status`,
       { status: newStatus }
     );
 
