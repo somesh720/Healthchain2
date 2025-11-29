@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages"; // Import the profile image utility
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
+
 const Requests = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -45,7 +48,7 @@ const Requests = () => {
   const checkPrescription = async (appointmentId) => {
     try {
 const res = await axios.get(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/prescriptions/appointment/${appointmentId}`
+  `${API}/api/prescriptions/appointment/${appointmentId}`
 );
 
       return res.data.exists;
@@ -70,7 +73,7 @@ const res = await axios.get(
 
         // Fetch appointments
         const res = await axios.get(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/requests?patientId=${patientId}`
+  `${API}/api/requests?patientId=${patientId}`
 );
 
 
@@ -114,7 +117,7 @@ const res = await axios.get(
     
     try {
       await axios.put(
-  `${process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"}/api/requests/${appointmentId}/cancel`
+  `${API}/api/requests/${appointmentId}/cancel`
 );
 
 
