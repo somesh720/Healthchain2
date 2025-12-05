@@ -50,11 +50,11 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:3001',
   'http://localhost:5173',
-<<<<<<< HEAD
-  'https://healthchain-project.vercel.app' // Changed to your actual frontend
-=======
+
+  'https://healthchain-project.vercel.app', // Changed to your actual frontend
+
   'https://healthchain-project.vercel.app'
->>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
+
 ];
 
 app.use(cors({
@@ -120,9 +120,9 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📁 GridFS file storage enabled`);
-<<<<<<< HEAD
+
   console.log(`📁 Body parser middleware enabled`);
 });
-=======
-});
->>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
+
+
+
