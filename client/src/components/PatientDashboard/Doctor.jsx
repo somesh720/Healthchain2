@@ -6,6 +6,7 @@ import {
   formatConsultingTimings,
   formatConsultingDaysForCard,
 } from "../../utils/timeFormatter";
+import { API_BASE_URL } from "../../config";
 
 const Doctor = () => {
   const [doctorsByCategory, setDoctorsByCategory] = useState({});
@@ -36,7 +37,7 @@ const Doctor = () => {
     const fetchDoctors = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/specialization/getDoctors"
+          `${API_BASE_URL}/api/specialization/getDoctors`
         );
         setDoctorsByCategory(res.data);
       } catch (err) {

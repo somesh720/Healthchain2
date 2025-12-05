@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "../../config";
 
 const BookAppointmentForm = () => {
   const [searchParams] = useSearchParams();
@@ -105,7 +106,7 @@ const BookAppointmentForm = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/appointments/book",
+        `${API_BASE_URL}/api/appointments/book`,
         form,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

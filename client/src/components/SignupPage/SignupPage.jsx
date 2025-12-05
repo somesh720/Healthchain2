@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../config";
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -297,7 +298,7 @@ const SignupPage = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/signup",
+        `${API_BASE_URL}/api/signup`,
         formData
       );
       

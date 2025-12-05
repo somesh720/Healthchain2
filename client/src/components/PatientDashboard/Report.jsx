@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages";
+import { API_BASE_URL } from "../../config";
 
 const Report = () => {
   const [reports, setReports] = useState([]);
@@ -39,7 +40,7 @@ const Report = () => {
 
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/appointments/reports?patientId=${encodeURIComponent(
+          `${API_BASE_URL}/api/appointments/reports?patientId=${encodeURIComponent(
             patientId
           )}`
         );
@@ -61,7 +62,7 @@ const Report = () => {
   // ✅ Use GridFS endpoints for file operations
   const handleView = (filename) => {
     if (!filename) return alert("No file available");
-    const url = `http://localhost:5000/api/files/view/${encodeURIComponent(
+    const url = `${API_BASE_URL}/api/files/view/${encodeURIComponent(
       filename
     )}`;
     window.open(url, "_blank");
@@ -69,7 +70,7 @@ const Report = () => {
 
   const handleDownload = (filename) => {
     if (!filename) return alert("No file available");
-    const url = `http://localhost:5000/api/files/download/${encodeURIComponent(
+    const url = `${API_BASE_URL}/api/files/download/${encodeURIComponent(
       filename
     )}`;
     window.open(url, "_blank");

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getDoctorImage } from "../../utils/profileImages"; // Import the doctor image utility
+import { API_BASE_URL } from "../../config";
 
 const PatientList = () => {
   const [patients, setPatients] = useState([]);
@@ -80,7 +81,7 @@ const PatientList = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/prescriptions/appointment/${appointmentId}`
+          `${API_BASE_URL}/api/prescriptions/appointment/${appointmentId}`
         );
 
         console.log("📋 Prescription API response:", response.data);
@@ -242,7 +243,7 @@ const PatientList = () => {
         console.log("🔄 Fetching appointments for doctor:", doctorId);
 
         const res = await axios.get(
-          `http://localhost:5000/api/appointments/doctor/${doctorId}`
+          `${API_BASE_URL}/api/appointments/doctor/${doctorId}`
         );
 
         console.log("✅ API Response received - FULL RESPONSE:", res);

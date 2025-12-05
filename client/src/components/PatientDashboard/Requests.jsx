@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages"; // Import the profile image utility
+import { API_BASE_URL } from "../../config";
 
 const Requests = () => {
   const [appointments, setAppointments] = useState([]);
@@ -45,7 +46,7 @@ const Requests = () => {
   const checkPrescription = async (appointmentId) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/prescriptions/appointment/${appointmentId}`
+        `${API_BASE_URL}/api/prescriptions/appointment/${appointmentId}`
       );
       return res.data.exists;
     } catch (error) {
@@ -69,7 +70,7 @@ const Requests = () => {
 
         // Fetch appointments
         const res = await axios.get(
-          `http://localhost:5000/api/requests?patientId=${patientId}`
+          `${API_BASE_URL}/api/requests?patientId=${patientId}`
         );
 
         const appointmentsData = Array.isArray(res.data) ? res.data : [];
@@ -112,7 +113,7 @@ const Requests = () => {
     
     try {
       await axios.put(
-        `http://localhost:5000/api/requests/${appointmentId}/cancel`
+        `${API_BASE_URL}/api/requests/${appointmentId}/cancel`
       );
 
       // Update UI immediately

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages"; // Import the specific patient image function
+import { API_BASE_URL } from "../../config";
 
 const PatientDashboard = () => {
   const [patient, setPatient] = useState(null);
@@ -67,7 +68,7 @@ const PatientDashboard = () => {
       console.log("Sending patient update data:", updateData);
 
       const response = await axios.put(
-        `http://localhost:5000/api/patients/${patient._id}`,
+        `${API_BASE_URL}/api/patients/${patient._id}`,
         updateData,
         {
           headers: {

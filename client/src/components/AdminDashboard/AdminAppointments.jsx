@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../config";
 
 const AdminAppointments = () => {
   const [appointments, setAppointments] = useState([]);
@@ -20,7 +21,7 @@ const AdminAppointments = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:5000/api/admin/all-appointments"
+        `${API_BASE_URL}/api/admin/all-appointments`
       );
       console.log("Appointments data:", res.data); // Debug log
       setAppointments(res.data);
@@ -40,7 +41,7 @@ const AdminAppointments = () => {
   const handleStatusUpdate = async (appointmentId, newStatus) => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/admin/appointments/${appointmentId}/status`,
+        `${API_BASE_URL}/api/admin/appointments/${appointmentId}/status`,
         { status: newStatus }
       );
 

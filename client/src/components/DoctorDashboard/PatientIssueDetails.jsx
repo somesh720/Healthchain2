@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages"; // Import the patient image utility
+import { API_BASE_URL } from "../../config";
 
 const PatientIssueDetails = () => {
   const [patient, setPatient] = useState(null);
@@ -69,7 +70,7 @@ const PatientIssueDetails = () => {
       // ✅ Use the correct API endpoint from your route
       // GET /api/requests?patientId=123 OR /api/requests?doctorId=456
       const allAppointmentsResponse = await axios.get(
-        `http://localhost:5000/api/requests?patientId=${patientId}`
+        `${API_BASE_URL}/api/requests?patientId=${patientId}`
       );
 
       console.log(
@@ -162,7 +163,7 @@ const PatientIssueDetails = () => {
       try {
         // Try getting appointments by doctor ID as fallback
         const doctorAppointmentsResponse = await axios.get(
-          `http://localhost:5000/api/requests?doctorId=${doctorId}`
+          `${API_BASE_URL}/api/requests?doctorId=${doctorId}`
         );
 
         console.log(
@@ -212,7 +213,7 @@ const PatientIssueDetails = () => {
 
     try {
       window.open(
-        `http://localhost:5000/api/files/download/${filename}`,
+        `${API_BASE_URL}/api/files/download/${filename}`,
         "_blank"
       );
     } catch (error) {
@@ -227,7 +228,7 @@ const PatientIssueDetails = () => {
       alert("No file available to view");
       return;
     }
-    window.open(`http://localhost:5000/api/files/view/${filename}`, "_blank");
+    window.open(`${API_BASE_URL}/api/files/view/${filename}`, "_blank");
   };
 
   // Show error if selected patient appointment is cancelled

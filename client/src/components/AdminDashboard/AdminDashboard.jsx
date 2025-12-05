@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../config";
 
 const AdminDashboard = () => {
   const [stats, setStats] = useState({});
@@ -45,7 +46,7 @@ const AdminDashboard = () => {
   const fetchStats = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/admin/stats");
+      const res = await fetch(`${API_BASE_URL}/api/admin/stats`);
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
@@ -79,7 +80,7 @@ const AdminDashboard = () => {
   // Fetch completed appointments count from appointments API
   const fetchCompletedAppointments = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/admin/all-appointments");
+      const res = await fetch(`${API_BASE_URL}/api/admin/all-appointments`);
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
@@ -100,7 +101,7 @@ const AdminDashboard = () => {
   // Fetch today's appointments count from appointments API
   const fetchTodayAppointments = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/admin/all-appointments");
+      const res = await fetch(`${API_BASE_URL}/api/admin/all-appointments`);
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }

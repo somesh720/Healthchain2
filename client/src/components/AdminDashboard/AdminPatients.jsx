@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../config";
 
 const AdminPatients = () => {
   const [patients, setPatients] = useState([]);
@@ -17,7 +18,7 @@ const AdminPatients = () => {
   const fetchPatients = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/admin/all-patients"
+        `${API_BASE_URL}/api/admin/all-patients`
       );
       setPatients(res.data);
     } catch (error) {

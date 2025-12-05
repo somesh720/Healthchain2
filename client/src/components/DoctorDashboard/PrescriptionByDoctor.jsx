@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "../../config";
 
 const PrescriptionByDoctor = () => {
   const navigate = useNavigate();
@@ -177,7 +178,7 @@ const PrescriptionByDoctor = () => {
       console.log("📤 Saving prescription:", prescriptionData);
 
       const response = await axios.post(
-        "http://localhost:5000/api/prescriptions/create",
+        `${API_BASE_URL}/api/prescriptions/create`,
         prescriptionData
       );
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { API_BASE_URL } from "../../config";
 
 const PatientLogin = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ const PatientLogin = () => {
     setMessage({ text: "", type: "" }); // Clear previous messages
 
     try {
-      const res = await fetch("http://localhost:5000/api/patients/login", {
+      const res = await fetch(`${API_BASE_URL}/api/patients/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

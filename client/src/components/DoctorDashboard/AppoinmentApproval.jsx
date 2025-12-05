@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getDoctorImage } from "../../utils/profileImages"; // Import the doctor image utility
+import { API_BASE_URL } from "../../config";
 
 const AppointmentApproval = () => {
   const [appointments, setAppointments] = useState([]);
@@ -42,7 +43,7 @@ const AppointmentApproval = () => {
     const fetchAppointments = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/requests?doctorId=${doctorId}`
+          `${API_BASE_URL}/api/requests?doctorId=${doctorId}`
         );
         // Filter out cancelled appointments
         const activeAppointments = res.data.filter(
@@ -62,7 +63,7 @@ const AppointmentApproval = () => {
   // Approve Appointment
   const handleApprove = async (id, patientName) => {
     try {
-      await axios.put(`http://localhost:5000/api/requests/${id}/approve`);
+      await axios.put(`${API_BASE_URL}/api/requests/${id}/approve`);
       setAppointments((prev) =>
         prev.map((appt) =>
           appt._id === id ? { ...appt, status: "Confirmed" } : appt

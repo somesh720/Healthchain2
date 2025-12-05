@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages"; // Import the profile image utility
+import { API_BASE_URL } from "../../config";
 
 const PatientPrescription = () => {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const PatientPrescription = () => {
       const patientId = localStorage.getItem("patientId");
       if (patientId) {
         const response = await axios.get(
-          `http://localhost:5000/api/prescriptions/patient/${patientId}`
+          `${API_BASE_URL}/api/prescriptions/patient/${patientId}`
         );
         if (response.data && response.data.length > 0) {
           // Sort prescriptions by date (newest first)

@@ -7,6 +7,7 @@ import {
   formatConsultingTimings,
   formatConsultingDaysForDashboard,
 } from "../../utils/timeFormatter";
+import { API_BASE_URL } from "../../config";
 
 const DoctorDashboard = () => {
   const [doctor, setDoctor] = useState(null);
@@ -132,7 +133,7 @@ const DoctorDashboard = () => {
       console.log("Sending update data:", updateData);
 
       const response = await axios.put(
-        `http://localhost:5000/api/doctors/${doctor._id}`,
+        `${API_BASE_URL}/api/doctors/${doctor._id}`,
         updateData,
         {
           headers: {
