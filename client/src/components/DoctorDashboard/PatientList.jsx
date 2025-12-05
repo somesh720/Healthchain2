@@ -4,6 +4,8 @@ import axios from "axios";
 import { getDoctorImage } from "../../utils/profileImages"; // Import the doctor image utility
 import { API_BASE_URL } from "../../config";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const PatientList = () => {
   const [patients, setPatients] = useState([]);
   const [search, setSearch] = useState("");
@@ -81,8 +83,13 @@ const PatientList = () => {
 
       try {
         const response = await axios.get(
+<<<<<<< HEAD
           `${API_BASE_URL}/api/prescriptions/appointment/${appointmentId}`
         );
+=======
+  `${API}/api/prescriptions/appointment/${appointmentId}`
+);
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
 
         console.log("📋 Prescription API response:", response.data);
 
@@ -243,8 +250,13 @@ const PatientList = () => {
         console.log("🔄 Fetching appointments for doctor:", doctorId);
 
         const res = await axios.get(
+<<<<<<< HEAD
           `${API_BASE_URL}/api/appointments/doctor/${doctorId}`
         );
+=======
+  `${API}/api/appointments/doctor/${doctorId}`
+);
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
 
         console.log("✅ API Response received - FULL RESPONSE:", res);
         console.log("📊 Response data type:", typeof res.data);

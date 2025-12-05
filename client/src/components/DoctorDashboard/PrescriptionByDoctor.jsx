@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_BASE_URL } from "../../config";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const PrescriptionByDoctor = () => {
   const navigate = useNavigate();
   const [patient, setPatient] = useState(null);
@@ -177,10 +179,17 @@ const PrescriptionByDoctor = () => {
 
       console.log("📤 Saving prescription:", prescriptionData);
 
+<<<<<<< HEAD
       const response = await axios.post(
         `${API_BASE_URL}/api/prescriptions/create`,
         prescriptionData
       );
+=======
+        const response = await axios.post(
+      `${API}/api/prescriptions/create`,
+      prescriptionData
+    );
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
 
       if (response.status === 201) {
         console.log("✅ Prescription saved successfully:", response.data);

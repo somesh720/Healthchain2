@@ -4,6 +4,8 @@ import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages"; // Import the patient image utility
 import { API_BASE_URL } from "../../config";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const PatientIssueDetails = () => {
   const [patient, setPatient] = useState(null);
   const [reports, setReports] = useState([]);
@@ -70,8 +72,13 @@ const PatientIssueDetails = () => {
       // ✅ Use the correct API endpoint from your route
       // GET /api/requests?patientId=123 OR /api/requests?doctorId=456
       const allAppointmentsResponse = await axios.get(
+<<<<<<< HEAD
         `${API_BASE_URL}/api/requests?patientId=${patientId}`
       );
+=======
+  `${API}/api/requests?patientId=${patientId}`
+);
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
 
       console.log(
         "📋 All appointments for patient from /api/requests:",
@@ -163,8 +170,13 @@ const PatientIssueDetails = () => {
       try {
         // Try getting appointments by doctor ID as fallback
         const doctorAppointmentsResponse = await axios.get(
+<<<<<<< HEAD
           `${API_BASE_URL}/api/requests?doctorId=${doctorId}`
         );
+=======
+  `${API}/api/requests?doctorId=${doctorId}`
+);
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
 
         console.log(
           "📋 Appointments for doctor from /api/requests:",
@@ -213,9 +225,15 @@ const PatientIssueDetails = () => {
 
     try {
       window.open(
+<<<<<<< HEAD
         `${API_BASE_URL}/api/files/download/${filename}`,
         "_blank"
       );
+=======
+  `${API}/api/files/download/${filename}`,
+  "_blank"
+);
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
     } catch (error) {
       console.error("Download error:", error);
       alert("Failed to download file. Please try again.");
@@ -228,7 +246,14 @@ const PatientIssueDetails = () => {
       alert("No file available to view");
       return;
     }
+<<<<<<< HEAD
     window.open(`${API_BASE_URL}/api/files/view/${filename}`, "_blank");
+=======
+    window.open(
+  `${API}/api/files/view/${filename}`,
+  "_blank"
+);
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
   };
 
   // Show error if selected patient appointment is cancelled

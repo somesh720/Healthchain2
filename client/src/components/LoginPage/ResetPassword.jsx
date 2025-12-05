@@ -4,6 +4,8 @@ import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import axios from "axios";
 import { API_BASE_URL } from "../../config";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -44,6 +46,7 @@ const ResetPassword = () => {
       console.log("Sending reset request:", { token, role });
 
       const res = await axios.post(
+<<<<<<< HEAD
         `${API_BASE_URL}/api/auth/reset-password`,
         {
           token,
@@ -51,6 +54,15 @@ const ResetPassword = () => {
           newPassword,
         }
       );
+=======
+  `${API}/api/auth/reset-password`,
+  {
+    token,
+    role,
+    newPassword,
+  }
+);
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
 
       setMessage(res.data.message || "Password reset successfully!");
 

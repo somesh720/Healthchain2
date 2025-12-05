@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../../config";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const AdminDashboard = () => {
   const [stats, setStats] = useState({});
   const [loading, setLoading] = useState(true);
@@ -46,7 +48,13 @@ const AdminDashboard = () => {
   const fetchStats = async () => {
     try {
       setLoading(true);
+<<<<<<< HEAD
       const res = await fetch(`${API_BASE_URL}/api/admin/stats`);
+=======
+      const res = await fetch(
+      `${API}/api/admin/stats`
+    );
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
@@ -80,7 +88,13 @@ const AdminDashboard = () => {
   // Fetch completed appointments count from appointments API
   const fetchCompletedAppointments = async () => {
     try {
+<<<<<<< HEAD
       const res = await fetch(`${API_BASE_URL}/api/admin/all-appointments`);
+=======
+      const res = await fetch(
+      `${API}/api/admin/all-appointments`
+    );
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
@@ -101,7 +115,13 @@ const AdminDashboard = () => {
   // Fetch today's appointments count from appointments API
   const fetchTodayAppointments = async () => {
     try {
+<<<<<<< HEAD
       const res = await fetch(`${API_BASE_URL}/api/admin/all-appointments`);
+=======
+     const res = await fetch(
+      `${API}/api/admin/all-appointments`
+    );
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }

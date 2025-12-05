@@ -8,6 +8,9 @@ import {
 } from "../../utils/timeFormatter";
 import { API_BASE_URL } from "../../config";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
+
 const Doctor = () => {
   const [doctorsByCategory, setDoctorsByCategory] = useState({});
   const [loading, setLoading] = useState(true);
@@ -37,8 +40,13 @@ const Doctor = () => {
     const fetchDoctors = async () => {
       try {
         const res = await axios.get(
+<<<<<<< HEAD
           `${API_BASE_URL}/api/specialization/getDoctors`
         );
+=======
+  `${API}/api/specialization/getDoctors`
+);
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
         setDoctorsByCategory(res.data);
       } catch (err) {
         console.error("Error fetching doctors:", err);

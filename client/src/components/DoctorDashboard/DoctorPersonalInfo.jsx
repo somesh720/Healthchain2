@@ -9,6 +9,8 @@ import {
 } from "../../utils/timeFormatter";
 import { API_BASE_URL } from "../../config";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const DoctorDashboard = () => {
   const [doctor, setDoctor] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -132,8 +134,13 @@ const DoctorDashboard = () => {
 
       console.log("Sending update data:", updateData);
 
+<<<<<<< HEAD
       const response = await axios.put(
         `${API_BASE_URL}/api/doctors/${doctor._id}`,
+=======
+    const response = await axios.put(
+      `${API}/api/doctors/${doctor._id}`,
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
         updateData,
         {
           headers: {

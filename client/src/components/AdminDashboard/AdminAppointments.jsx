@@ -3,6 +3,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../../config";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
+
+
 const AdminAppointments = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,8 +25,13 @@ const AdminAppointments = () => {
     try {
       setLoading(true);
       const res = await axios.get(
+<<<<<<< HEAD
         `${API_BASE_URL}/api/admin/all-appointments`
       );
+=======
+      `${API}/api/admin/all-appointments`
+    );
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
       console.log("Appointments data:", res.data); // Debug log
       setAppointments(res.data);
       setMessage({ text: "", type: "" });
@@ -41,9 +50,15 @@ const AdminAppointments = () => {
   const handleStatusUpdate = async (appointmentId, newStatus) => {
     try {
       const res = await axios.put(
+<<<<<<< HEAD
         `${API_BASE_URL}/api/admin/appointments/${appointmentId}/status`,
         { status: newStatus }
       );
+=======
+      `${API}/api/admin/appointments/${appointmentId}/status`,
+      { status: newStatus }
+    );
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
 
       if (res.status === 200) {
         // Update local state

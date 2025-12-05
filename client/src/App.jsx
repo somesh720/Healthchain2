@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./index.css";
 
 
@@ -79,7 +79,8 @@ export default function App() {
         <Route path="/admin-appointments" element={<AdminAppointments />} />
 
         {/* ==================== 404 PAGE (Optional) ==================== */}
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+     
       </Routes>
     </Router>
   );

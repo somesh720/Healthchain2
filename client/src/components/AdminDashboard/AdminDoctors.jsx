@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../../config";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 const AdminDoctors = () => {
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,8 +20,13 @@ const AdminDoctors = () => {
   const fetchDoctors = async () => {
     try {
       const res = await axios.get(
+<<<<<<< HEAD
         `${API_BASE_URL}/api/admin/all-doctors`
       );
+=======
+      `${API}/api/admin/all-doctors`
+    );
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
       setDoctors(res.data);
     } catch (error) {
       console.error("Error loading doctors:", error);

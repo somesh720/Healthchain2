@@ -3,6 +3,9 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../../config";
 
+const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
+
 const SignupPage = () => {
   const [formData, setFormData] = useState({
     role: "",
@@ -298,9 +301,16 @@ const SignupPage = () => {
 
     try {
       const res = await axios.post(
+<<<<<<< HEAD
         `${API_BASE_URL}/api/signup`,
         formData
       );
+=======
+  `${API}/api/signup`,
+  formData
+);
+
+>>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
       
       // Show success message
       setShowSuccess(true);
