@@ -191,7 +191,7 @@ const Doctor = () => {
                     </div>
 
                     {/* Doctor Details */}
-                    <div className="space-y-3 mb-4 flex-grow">
+                    <div className="space-y-3 mb-4 ">
                       <div className="flex items-center gap-2 text-sm text-gray-600">
                         <span className="material-symbols-outlined text-base text-gray-400">
                           work

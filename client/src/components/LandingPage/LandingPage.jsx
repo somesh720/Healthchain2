@@ -108,7 +108,7 @@ const LandingPage = () => {
               <div className="mt-6">
                 <button 
                   onClick={() => handleButtonClick("Sign Up", "/signup")}
-                  className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-xl shadow-2xl transition-all duration-500 transform hover:scale-110 hover:shadow-2xl active:scale-95 group relative overflow-hidden"
+                  className="px-8 py-4 text-lg font-semibold  from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-xl shadow-2xl transition-all duration-500 transform hover:scale-110 hover:shadow-2xl active:scale-95 group relative overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center gap-3">
                     <span className="material-symbols-outlined text-xl">
@@ -116,9 +116,9 @@ const LandingPage = () => {
                     </span>
                     Get Started - Create Your Account
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-green-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                  <div className="absolute inset-0 from-emerald-600 to-green-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                   {/* Shine effect */}
-                  <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-30 group-hover:animate-shine transition-all duration-1000"></div>
+                  <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 from-transparent to-white opacity-30 group-hover:animate-shine transition-all duration-1000"></div>
                 </button>
               </div>
             </div>

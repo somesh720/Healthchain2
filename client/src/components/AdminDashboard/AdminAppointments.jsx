@@ -362,7 +362,7 @@ const AdminAppointments = () => {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center gap-3">
                           <div
-                            className="w-8 h-8 rounded-full bg-cover bg-center flex-shrink-0"
+                            className="w-8 h-8 rounded-full bg-cover bg-center "
                             style={{
                               backgroundImage: `url(${
                                 appointment.patientProfileImage ||
@@ -384,7 +384,7 @@ const AdminAppointments = () => {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center gap-3">
                           <div
-                            className="w-8 h-8 rounded-full bg-cover bg-center flex-shrink-0"
+                            className="w-8 h-8 rounded-full bg-cover bg-center "
                             style={{
                               backgroundImage: `url(${
                                 appointment.doctorProfileImage ||

@@ -332,7 +332,7 @@ const PatientIssueDetails = () => {
           {/* Patient Profile */}
           <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 mb-8">
             <div className="flex flex-col gap-6 sm:flex-row">
-              <div className="flex flex-shrink-0 items-start">
+              <div className="flex  items-start">
                 <div
                   className="h-20 w-20 rounded-full bg-cover bg-center border-2 border-gray-300"
                   style={{

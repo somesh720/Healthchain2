@@ -252,7 +252,7 @@ const AdminDoctors = () => {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center gap-3">
                           <div
-                            className="w-10 h-10 rounded-full bg-cover bg-center flex-shrink-0"
+                            className="w-10 h-10 rounded-full bg-cover bg-center"
                             style={{
                               backgroundImage: `url(${
                                 doctor.profileImage ||

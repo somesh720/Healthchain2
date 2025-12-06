@@ -111,7 +111,7 @@ const ForgotPassword = () => {
             {message && (
               <div className="rounded-lg bg-green-50 p-4 animate-fade-in">
                 <div className="flex">
-                  <div className="flex-shrink-0">
+                  <div className="">
                     <svg
                       className="h-5 w-5 text-green-400"
                       viewBox="0 0 20 20"
@@ -136,7 +136,7 @@ const ForgotPassword = () => {
             {error && (
               <div className="rounded-lg bg-red-50 p-4 animate-fade-in">
                 <div className="flex">
-                  <div className="flex-shrink-0">
+                  <div className="">
                     <svg
                       className="h-5 w-5 text-red-400"
                       viewBox="0 0 20 20"
