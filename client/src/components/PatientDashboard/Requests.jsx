@@ -4,7 +4,6 @@ import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages"; // Import the profile image utility
 import { API_BASE_URL } from "../../config";
 
-const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
 
 
 const Requests = () => {
@@ -48,16 +47,11 @@ const Requests = () => {
   // 🔹 Check if appointment has prescription
   const checkPrescription = async (appointmentId) => {
     try {
-<<<<<<< HEAD
+
       const res = await axios.get(
         `${API_BASE_URL}/api/prescriptions/appointment/${appointmentId}`
       );
-=======
-const res = await axios.get(
-  `${API}/api/prescriptions/appointment/${appointmentId}`
-);
 
->>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
       return res.data.exists;
     } catch (error) {
       console.error("Error checking prescription:", error);
@@ -80,14 +74,10 @@ const res = await axios.get(
 
         // Fetch appointments
         const res = await axios.get(
-<<<<<<< HEAD
+
           `${API_BASE_URL}/api/requests?patientId=${patientId}`
         );
-=======
-  `${API}/api/requests?patientId=${patientId}`
-);
 
->>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
 
         const appointmentsData = Array.isArray(res.data) ? res.data : [];
 
@@ -129,14 +119,10 @@ const res = await axios.get(
     
     try {
       await axios.put(
-<<<<<<< HEAD
+
         `${API_BASE_URL}/api/requests/${appointmentId}/cancel`
       );
-=======
-  `${API}/api/requests/${appointmentId}/cancel`
-);
 
->>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
 
       // Update UI immediately
       setAppointments((prev) =>

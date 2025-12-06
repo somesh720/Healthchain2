@@ -5,7 +5,7 @@ import axios from "axios";
 import { getDoctorImage } from "../../utils/profileImages"; // Import the doctor image utility
 import { API_BASE_URL } from "../../config";
 
-const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 
 const AppointmentApproval = () => {
   const [appointments, setAppointments] = useState([]);
@@ -44,15 +44,11 @@ const AppointmentApproval = () => {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-<<<<<<< HEAD
+
         const res = await axios.get(
           `${API_BASE_URL}/api/requests?doctorId=${doctorId}`
         );
-=======
-       const res = await axios.get(
-        `${API}/api/requests?doctorId=${doctorId}`
-      );
->>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
+
         // Filter out cancelled appointments
         const activeAppointments = res.data.filter(
           (appt) => appt.status !== "Cancelled"
@@ -71,13 +67,9 @@ const AppointmentApproval = () => {
   // Approve Appointment
   const handleApprove = async (id, patientName) => {
     try {
-<<<<<<< HEAD
+
       await axios.put(`${API_BASE_URL}/api/requests/${id}/approve`);
-=======
-      await axios.put(
-      `${API}/api/requests/${id}/approve`
-    );
->>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
+
       setAppointments((prev) =>
         prev.map((appt) =>
           appt._id === id ? { ...appt, status: "Confirmed" } : appt

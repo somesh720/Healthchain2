@@ -4,7 +4,7 @@ import axios from "axios";
 import { getPatientImage } from "../../utils/profileImages";
 import { API_BASE_URL } from "../../config";
 
-const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com";
+
 
 
 const Report = () => {
@@ -42,20 +42,13 @@ const Report = () => {
       }
 
       try {
-<<<<<<< HEAD
+
         const res = await axios.get(
           `${API_BASE_URL}/api/appointments/reports?patientId=${encodeURIComponent(
             patientId
           )}`
         );
-=======
-    const res = await axios.get(
-  `${API}/api/appointments/reports?patientId=${encodeURIComponent(
-    patientId
-  )}`
-);
 
->>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
         setReports(Array.isArray(res.data) ? res.data : []);
       } catch (err) {
         console.error("fetchReports error:", err);
@@ -74,29 +67,21 @@ const Report = () => {
   // ✅ Use GridFS endpoints for file operations
   const handleView = (filename) => {
     if (!filename) return alert("No file available");
-<<<<<<< HEAD
+
     const url = `${API_BASE_URL}/api/files/view/${encodeURIComponent(
       filename
     )}`;
-=======
-  const url = `${API}/api/files/view/${encodeURIComponent(filename)}`;
 
-
->>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
     window.open(url, "_blank");
   };
 
   const handleDownload = (filename) => {
     if (!filename) return alert("No file available");
-<<<<<<< HEAD
+
     const url = `${API_BASE_URL}/api/files/download/${encodeURIComponent(
       filename
     )}`;
-=======
-    const url = `${API}/api/files/download/${encodeURIComponent(filename)}`;
 
-
->>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
     window.open(url, "_blank");
   };
 

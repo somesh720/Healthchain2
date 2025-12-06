@@ -3,7 +3,7 @@ import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_BASE_URL } from "../../config";
 
-const API = process.env.REACT_APP_API_URL || "https://backend-healthchain.onrender.com"; 
+
 
 
 const BookAppointmentForm = () => {
@@ -108,19 +108,13 @@ const BookAppointmentForm = () => {
     for (let [key, value] of form.entries()) console.log(`${key}:`, value);
 
     try {
-<<<<<<< HEAD
+
       const res = await axios.post(
         `${API_BASE_URL}/api/appointments/book`,
         form,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-=======
-  const res = await axios.post(
-  `${API}/api/appointments/book`,
-  form,
-  { headers: { "Content-Type": "multipart/form-data" } }
-);
->>>>>>> 2da723d346a571afec5ac591aa947bb923e316ec
+
 
       if (res.status === 201) {
         // Show success popup
