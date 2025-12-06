@@ -14,7 +14,7 @@ const LandingPage = () => {
   const handleButtonClick = (type, path) => {
     setLoading(true);
     setLoadingFor(type);
-    
+
     setTimeout(() => {
       setLoading(false);
       navigate(path);
@@ -22,27 +22,31 @@ const LandingPage = () => {
   };
 
   return (
-
-    
     <div className="flex flex-col min-h-screen">
       {/* Loading Overlay */}
       {loading && (
-  <div className="fixed inset-0 bg-white bg-opacity-60 flex items-center justify-center z-50">
-    <div className="relative">
-      {/* Outer circle */}
-      <div className="w-24 h-24 mx-auto border-4 border-gray-200 rounded-full"></div>
-      {/* Middle spinning circle - Green color */}
-      <div className="absolute inset-0 w-24 h-24 mx-auto border-4 border-transparent border-t-[#32cd32] rounded-full animate-spin"></div>
-      {/* Inner spinning circle - Lighter green */}
-      <div className="absolute inset-2 w-20 h-20 mx-auto border-4 border-transparent border-b-[#32cd32] rounded-full animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }}></div>
-    </div>
-  </div>
-)}
-      
+        <div className="fixed inset-0 bg-white bg-opacity-60 flex items-center justify-center z-50">
+          <div className="relative">
+            {/* Outer circle */}
+            <div className="w-24 h-24 mx-auto border-4 border-gray-200 rounded-full"></div>
+            {/* Middle spinning circle - Green color */}
+            <div className="absolute inset-0 w-24 h-24 mx-auto border-4 border-transparent border-t-[#32cd32] rounded-full animate-spin"></div>
+            {/* Inner spinning circle - Lighter green */}
+            <div
+              className="absolute inset-2 w-20 h-20 mx-auto border-4 border-transparent border-b-[#32cd32] rounded-full animate-spin"
+              style={{
+                animationDirection: "reverse",
+                animationDuration: "1.5s",
+              }}
+            ></div>
+          </div>
+        </div>
+      )}
+
       <main>
         {/* Header */}
 
-        <Header/>
+        <Header />
         {/* Hero Section */}
         <section id="home">
           <section
@@ -64,7 +68,7 @@ const LandingPage = () => {
 
               {/* HERO BUTTONS */}
               <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <button 
+                <button
                   onClick={() => handleButtonClick("Admin", "/admin-login")}
                   className="px-6 py-3 text-base font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-xl active:scale-95 group relative overflow-hidden"
                 >
@@ -77,7 +81,7 @@ const LandingPage = () => {
                   <div className="absolute inset-0 bg-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 </button>
 
-                <button 
+                <button
                   onClick={() => handleButtonClick("Doctor", "/doctor-login")}
                   className="px-6 py-3 text-base font-semibold bg-white text-blue-600 hover:bg-gray-100 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-xl active:scale-95 group relative overflow-hidden border-2 border-transparent hover:border-blue-200"
                 >
@@ -90,7 +94,7 @@ const LandingPage = () => {
                   <div className="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 </button>
 
-                <button 
+                <button
                   onClick={() => handleButtonClick("Patient", "/patient-login")}
                   className="px-6 py-3 text-base font-semibold bg-white text-blue-600 hover:bg-gray-100 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-xl active:scale-95 group relative overflow-hidden border-2 border-transparent hover:border-blue-200"
                 >
@@ -106,9 +110,9 @@ const LandingPage = () => {
 
               {/* Additional signup button with different animation */}
               <div className="mt-6">
-                <button 
+                <button
                   onClick={() => handleButtonClick("Sign Up", "/signup")}
-                  className="px-8 py-4 text-lg font-semibold  from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-xl shadow-2xl transition-all duration-500 transform hover:scale-110 hover:shadow-2xl active:scale-95 group relative overflow-hidden"
+                  className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-xl shadow-2xl transition-all duration-500 transform hover:scale-110 hover:shadow-2xl active:scale-95 group relative overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center gap-3">
                     <span className="material-symbols-outlined text-xl">
@@ -116,16 +120,14 @@ const LandingPage = () => {
                     </span>
                     Get Started - Create Your Account
                   </span>
-                  <div className="absolute inset-0 from-emerald-600 to-green-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-green-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                   {/* Shine effect */}
-                  <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 from-transparent to-white opacity-30 group-hover:animate-shine transition-all duration-1000"></div>
+                  <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-30 group-hover:animate-shine transition-all duration-1000"></div>
                 </button>
               </div>
             </div>
           </section>
         </section>
-
-        
 
         {/* About Section */}
         <AboutSection />
